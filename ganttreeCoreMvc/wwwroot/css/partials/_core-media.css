@@ -2,97 +2,101 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 62em) {
     .gt-header-nav {
-        display:block !important; 
-        float: left;                
+        display: block !important;
+        float: left;
     }
-    .gt-header-nav-main  > ul {
-    	padding-left: .5rem;
-    	
 
+    .gt-header-nav-main > ul {
+        padding-left: .5rem;
     }
-    .gt-header-nav-main  > ul > li {
-        height: 3.75rem;
-        display: inline-block;      
-        
-        vertical-align: middle;
-    }
-    .gt-header-nav-main > ul > li a {        
-        margin: 0 !important;                               
-        line-height: 4.7em;
-        text-transform: uppercase;
-		white-space: initial;
-		color: #444;
-		
-		padding: 0 1em;
-		display: block;
-    }
-    .gt-header-nav-main > ul > li:last-child a {
-    	padding: 0;
-    }
+
+        .gt-header-nav-main > ul > li {
+            height: 3.75rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+            .gt-header-nav-main > ul > li a {
+                margin: 0 !important;
+                line-height: 4.7em;
+                text-transform: uppercase;
+                white-space: initial;
+                color: #444;
+                padding: 0 1em;
+                display: block;
+            }
+
+            .gt-header-nav-main > ul > li:last-child a {
+                padding: 0;
+            }
+
     .gt-header-nav-main > nav > ul > li:hover {
-    	background: #CCC;
+        background: #CCC;
+    }
 
-    }
-    .gt-header-nav-main > nav > ul > li:hover > a {
-    	color: white;
-    }
+        .gt-header-nav-main > nav > ul > li:hover > a {
+            color: white;
+        }
+
     .gt-header.gt-header-nav-menu .gt-header-right {
-		position: absolute;
-		top: 0;
-		right: 60px;		
-	}
+        position: absolute;
+        top: 0;
+        right: .5em;
+    }
 }
 /* 991px Header Nav Main Mobile */
 @media (max-width: 61.9375em) {
     .gt-header.gt-header-nav-menu .gt-header-btn-collapse-nav {
-		outline: 0;
-		float: right;
-		margin-top: .625em;
-		margin-right: .94em;
-    }   
+        outline: 0;
+        float: right;
+        margin-top: .625em;
+        margin-right: .94em;
+    }
+
     .gt-header-nav-main {
-		background: #FFF;		
-		max-height: 21.88em;
-		overflow-x: hidden;
+        background: #FFF;
+        max-height: 21.88em;
+        overflow-x: hidden;
         overflow-y: auto;
         padding: .63em;
         -webkit-box-shadow: 0px .56em .56em rgba(33, 37, 41, 0.12);
         -moz-box-shadow: 0px .56em .56em rgba(33, 37, 41, 0.12);
         box-shadow: 0px .56em .56em rgba(33, 37, 41, 0.12);
     }
-   
+
     .gt-header-nav {
-		position: absolute;
-		top: 100%;
-		margin-top:1px;
+        position: absolute;
+        top: 100%;
+        margin-top: 1px;
         width: 100%;
         display: none;
-    }     
+    }
+
     .gt-header-nav-main > ul > li {
-        
+        /* color: #444 !important; */
         border-bottom: 1px solid #e9e9e6;
     }
-     .gt-header-nav-main > ul > li:last-child {
-     	border-bottom: none;
-     }
-     .gt-header-nav-main > ul > li > a {     	
-     	width: 100%;
-     	display: block;
-         padding: .6em;
-        
-     }
 
+        .gt-header-nav-main > ul > li:last-child {
+            border-bottom: none;
+        }
 
-    .gt-header-nav-main > ul > li.separator { display: none; }
-    
+        .gt-header-nav-main > ul > li > a {
+            width: 100%;
+            display: block;
+            padding: .6em;
+            color: #444 !important;
+        }
+
+        .gt-header-nav-main > ul > li.separator {
+            display: none;
+        }
 }
 /* 991px and  768px */
 
 /* Extra small devices (portrait phones, less than 575.98px) */
 @media (max-width: 35.9988em) {
-   
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 36em) {
-   
 }

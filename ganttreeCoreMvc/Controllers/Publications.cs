@@ -13,6 +13,8 @@ namespace ganttreeCoreMvc.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            ViewBag.title = "S.O.P. Publications";
+            ViewBag.themeBackground = "#ffffff";
             return View();
         }
     }

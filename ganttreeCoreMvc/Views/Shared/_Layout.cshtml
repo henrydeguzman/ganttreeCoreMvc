@@ -1,4 +1,12 @@
-﻿<!doctype html>
+﻿@{
+    // Get controllers name for validations
+    var controllerName = this.ViewContext.RouteData.Values["controller"].ToString();
+
+    // Adding colors and background
+    string themeBackground = ViewBag.themeBackground != null ? "background:" + ViewBag.themeBackground : null;
+    string themeColor = ViewBag.themeColor != null ? "color:" + ViewBag.themeColor : null;
+}
+<!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -13,39 +21,51 @@
 
     <!-- Site css -->
     <link rel="stylesheet" href="~/css/core.css">
+    <title>@ViewBag.Title - @themeBackground</title>
 </head>
 <body>
     <div class="app-container">
         <!-- HEADER -->
-        <header class="gt-header gt-header-nav-menu">
+        <header class="gt-header gt-header-nav-menu" style="@themeBackground;@themeColor">
             <div class="gt-header-logo">
                 <a>
-                    <img src="./images/logos/ganttree-logo-nav.png" />
+                    @if (controllerName == "Mngsys" || controllerName == "Buildingprof")
+                    {
+                        <img src="~/images/logos/ganttree-logo-nav-light.png" />
+                    }
+                    else
+                    {
+                        <img src="./images/logos/ganttree-logo-nav.png" />
+                    }
+
                 </a>
-                <button class="btn gt-header-btn-collapse-nav d-lg-none" onclick="gt.navToggle(this)" data-target=".gt-header-nav">
+                <button style="@themeColor" class="btn gt-header-btn-collapse-nav d-lg-none" onclick="gt.navToggle(this)" data-target=".gt-header-nav">
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="gt-profilenav">
-                    <div class="gt-profilenav-title">Personal Profile</div>
-                    <div class="gt-profilenav-desc"><button class="btn btn-default btn-sm"><span>Logout</span></button></div>
-                </div>
 
+                <!-- PROFILEBAR COMPONENT (temporary disabled)-->
+                <!-- await Component.InvokeAsync("Profilebar") -->
+                <div class="gt-profilenav" style="@themeColor">
+                    <div class="gt-profilenav-title">@ViewBag.Title</div>
+                    <div class="gt-profilenav-desc"><button style="@themeColor" class="btn btn-default btn-sm"><span>Logout</span></button></div>
+                </div>
+                <!--/PROFILEBAR COMPONENT-->
                 <!-- HEADER NAV MENU -->
                 <div class="gt-header-nav">
                     <div class="gt-header-nav-main">
                         <ul>
                             <li class="separator"></li>
                             <li>
-                                <a href="#">ID Badge</a>
+                                <a style="@themeColor" href="#">ID Badge</a>
                             </li>
                             <li>
-                                <a href="#">Certification</a>
+                                <a style="@themeColor" href="#">Certification</a>
                             </li>
                             <li>
-                                <a href="#">Resume</a>
+                                <a style="@themeColor" href="#">Resume</a>
                             </li>
                             <li>
-                                <a href="#">Vechicle</a>
+                                <a style="@themeColor" href="#">Vechicle</a>
                             </li>
                         </ul>
                     </div>
@@ -56,23 +76,23 @@
             <!-- HEADER RIGHT -->
             <div class="gt-header-right">
                 <ul>
-                    <li><a asp-controller="Mngsys" asp-action="Index"><img src="./images/icons/thumb/management-system-icon.png" /></a></li>
-                    <li><a asp-controller="Userprof" asp-action="Index"><img src="./images/icons/thumb/user-profiles-icon.png" /></a></li>
-                    <li><a asp-controller="Buildingprof" asp-action="Index"><img src="./images/icons/thumb/building-profiles-icon.png" /></a></li>
-                    <li><a asp-controller="Publications" asp-action="Index"><img src="./images/icons/thumb/publications-icon.png" /></a></li>
+                    <li @if (controllerName == "Mngsys") { <text>class="active"</text> }><a asp-controller="Mngsys" asp-action="Index"><img src="./images/icons/thumb/management-system-icon.png" /></a></li>
+                    <li @if (controllerName == "Userprof") { <text>class="active"</text> }><a asp-controller="Userprof" asp-action="Index"><img src="./images/icons/thumb/user-profiles-icon.png" /></a></li>
+                    <li @if (controllerName == "Buildingprof") { <text>class="active"</text> }><a asp-controller="Buildingprof" asp-action="Index"><img src="./images/icons/thumb/building-profiles-icon.png" /></a></li>
+                    <li @if (controllerName == "Publications") { <text>class="active"</text> }><a asp-controller="Publications" asp-action="Index"><img src="./images/icons/thumb/publications-icon.png" /></a></li>
                 </ul>
             </div>
             <!-- /HEADER RIGHT -->
         </header>
-        <header class="gt-header-sub">
-            <button class="btn sidebar-toggle-btn" onclick="gt.sidebarLeft(this)" data-value="7.187em">
+        <header class="gt-header-sub" style="@themeBackground">
+            <button style="@themeColor" class="btn sidebar-toggle-btn" onclick="gt.sidebarLeft(this)" data-value="7.187em">
                 <i class="fas fa-bars"></i>
             </button>
         </header>
         <!-- /HEADER -->
         <div class="gt-wrapper">
             <!-- Sidebar -->
-            <div class="gt-sidebar">
+            <div class="gt-sidebar" style="@themeBackground;@themeColor">
                 content
             </div>
             <!-- /Sidebar -->
@@ -82,14 +102,14 @@
             </div>
             <!-- /Content -->
             <!-- Footer -->
-            <div class="gt-footer-container">
+            <div class="gt-footer-container" style="@themeBackground">
                 <footer class="gt-footer-sub"></footer>
                 <footer class="gt-footer"></footer>
             </div>
             <!-- /Footer -->
         </div>
         <!-- Sidebar-right -->
-        <div class="gt-sidebar-right">
+        <div class="gt-sidebar-right" style="@themeBackground;@themeColor">
             <div class="gt-sidebar-right-actions">
                 <ul>
                     <li onclick="gt.sidebarRight(this)" data-value="20%" data-target=".gt-sidebar-right"><i class="fas fa-angle-left"></i></li>

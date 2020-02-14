@@ -13,6 +13,9 @@ namespace ganttreeCoreMvc.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            ViewBag.title = "User Profile";
+            ViewBag.themeBackground = "#ffde16";
+            ViewBag.themeColor = "#444";
             return View();
         }
     }

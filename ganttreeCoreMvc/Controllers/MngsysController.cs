@@ -10,6 +10,9 @@ namespace ganttreeCoreMvc.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.title = "Management System";
+            ViewBag.themeBackground = "#163318";
+            ViewBag.themeColor = "white";
             return View();
         }
     }

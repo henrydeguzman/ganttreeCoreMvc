@@ -37,7 +37,7 @@ namespace ganttreeCoreMvc
                 // Default route
                 endpoints.MapControllerRoute(
                     name: "Default",
-                    pattern: "{Controller=Mngsys}/{Action=Index}/{id?}");
+                    pattern: "{Controller=Userprof}/{Action=Index}/{id?}");
             });
         }
     }
