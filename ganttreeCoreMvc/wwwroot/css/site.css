@@ -1,0 +1,286 @@
+
+/* Layout Base - Header */
+.gt-header {
+    height: 3.75em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #FFF;
+    border-bottom: 1px solid #E9E9E6;
+    z-index: 1001;
+}
+
+html.fixed-header .gt-header,
+html.fixed-header .gt-header-sub {
+    position: fixed;
+}
+/* Layout Base - header-sub */
+.gt-header-sub {
+    position: absolute;
+    top: 3.75em;
+    height: 3em;
+    width: 100%;
+    border-bottom: 1px solid #E9E9E6;
+    background: white;
+    z-index: 1000;
+    -webkit-box-shadow: -0.44em 0 0.44em 0.19em rgba(33, 37, 41, 0.12);
+    -moz-box-shadow: -0.44em 0 0.44em 0.19em rgba(33, 37, 41, 0.12);
+    box-shadow: -0.44em 0 0.44em 0.19em rgba(33, 37, 41, 0.12);
+}
+
+.gt-header > .gt-header-logo > a {
+    float: left;
+    margin: 0.625em 0 0 0.9375em;
+}
+
+.gt-header > .gt-header-logo img {
+    width: 4.688em;
+    height: 2.188em;
+}
+
+.gt-header.gt-header-nav-menu .gt-header-right > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .gt-header.gt-header-nav-menu .gt-header-right > ul > li {
+        display: inline-block;
+        padding: .375em;
+    }
+
+.gt-header-right {
+    float: right;
+    height: 3.75em;
+}
+
+.gt-header.gt-header-nav-menu .gt-header-right > ul > li img {
+    width: 3em;
+    opacity: .3;
+}
+
+.gt-header.gt-header-nav-menu .gt-header-right > ul > li.active img {
+    opacity: 1;
+}
+
+/* start: header profile nav */
+.gt-header > .gt-header-logo .gt-profilenav {
+    margin-left: 1em;
+    float: left;
+    padding: .5em;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: initial;
+    color: #444;
+    text-align: center;
+}
+
+.gt-profilenav-title {
+    padding: .32em;
+}
+
+.gt-header > .gt-header-logo .gt-profilenav button > span {
+    display: block;
+    font-size: .85em;
+}
+
+.gt-header > .gt-header-logo .gt-profilenav button {
+    height: 1.6em;
+    padding: 0 2em;
+}
+
+/* Navigation links */
+
+.gt-header-nav-main > ul {
+    margin: 0;
+    padding: 0;
+}
+
+    .gt-header-nav-main > ul > li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: .81em;
+    }
+
+        .gt-header-nav-main > ul > li > a {
+            text-decoration: none;
+        }
+
+.gt-header .separator {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(60%, #F6F6F6), to(#EDEDED));
+    background-image: linear-gradient(#F6F6F6 60%, #EDEDED);
+    display: inline-block;
+    height: 100%;
+    margin: 0 1rem 0;
+    width: 1px;
+    vertical-align: middle;
+    height: 3.75em;
+    padding: 0;
+}
+
+/* content wrapper */
+
+/* content and sidebar margin top */
+.gt-wrapper,
+.gt-sidebar,
+.gt-sidebar-right {
+    margin-top: 6.75em;
+}
+
+/* gt-content margin with sidebar width */
+
+/* start:sidebar */
+html.fixed-sidebar .gt-wrapper.sidebar-open .gt-sidebar {
+    position: fixed;
+}
+
+.gt-sidebar {
+    position: absolute;
+    width: 0;
+    top: 0;
+    bottom: 6em;
+    left: -1px;
+    overflow: hidden;
+    border-right: 1px solid #e9e9e6;
+}
+
+.gt-wrapper.sidebar-open .gt-sidebar {
+    padding: 1em;
+}
+
+.sidebar-toggle-btn {
+    margin: .3em;
+}
+
+button,
+button:focus {
+    outline: none !important;
+}
+
+.gt-sidebar.open {
+    padding: 1em;
+}
+
+.gt-content {
+    -webkit-transition-property: margin-left !important;
+    transition-property: margin-left !important;
+}
+
+/* Transition of two sidebar */
+.gt-sidebar-right,
+.gt-sidebar,
+.gt-content {
+    -webkit-transition-property: width;
+    transition-property: width;
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-transition-delay: 0;
+    transition-delay: 0;
+}
+
+/* start:gt-sidebar-right */
+.gt-sidebar-right {
+    background: blue;
+    position: fixed;
+    top: 0;
+    right: -1px;
+    bottom: 6em;
+    width: 0;
+    background: white;
+    border-left: 1px solid #e9e9e6;
+    z-index: 1000;
+}
+
+    .gt-sidebar-right.open {
+        padding: 1em;
+    }
+
+    .gt-sidebar-right .gt-sidebar-right-actions {
+        position: absolute;
+        right: 100%;
+        background: transparent;
+        display: block;
+        margin-right: 1px;
+        top: 50%;
+    }
+
+        .gt-sidebar-right .gt-sidebar-right-actions > ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+            .gt-sidebar-right .gt-sidebar-right-actions > ul > li {
+                padding: .3em .8em;
+                border: 1px solid #e9e9e6;
+                border-top-left-radius: 0.69em;
+                border-bottom-left-radius: 0.69em;
+                margin-top: 1px;
+                border-right: none;
+                background: white;
+                text-align: center;
+            }
+
+                .gt-sidebar-right .gt-sidebar-right-actions > ul > li.gt-close {
+                    display: none;
+                }
+
+
+    .gt-sidebar-right.open .gt-sidebar-right-actions > ul > li {
+        -webkit-box-shadow: -0.44em 0.31em 0.44em 0.19em rgba(33, 37, 41, 0.12);
+        -moz-box-shadow: -0.44em 0.31em 0.44em 0.19em rgba(33, 37, 41, 0.12);
+        box-shadow: -0.44em 0.31em 0.44em 0.19em rgba(33, 37, 41, 0.12);
+    }
+
+        .gt-sidebar-right.open .gt-sidebar-right-actions > ul > li.gt-close {
+            display: block;
+        }
+
+    .gt-sidebar-right .gt-sidebar-right-actions > ul > li:hover {
+        cursor: pointer;
+    }
+
+    .gt-sidebar-right .gt-sidebar-right-actions > ul > li i.fa-angle-double-down {
+        transform: rotate(90deg);
+    }
+
+    .gt-sidebar-right.open {
+        
+    }
+
+
+/* start:gt-content */
+.gt-content {
+    padding: 2em;
+    padding-bottom: 8em;
+}
+
+
+/* start:gt-footer-container */
+.gt-footer-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    -webkit-box-shadow: -0.44em 0.13em 0.44em 0.19em rgba(33, 37, 41, 0.12);
+    -moz-box-shadow: -0.44em 0.13em 0.44em 0.19em rgba(33, 37, 41, 0.12);
+    box-shadow: -0.44em 0.13em 0.44em 0.19em rgba(33, 37, 41, 0.12);
+    box-shadow: -0.44em 0.13em 0.44em 0.19em rgba(33, 37, 41, 0.12);
+    z-index: 1001;
+    background: white;
+}
+
+    .gt-footer-container > footer.gt-footer-sub,
+    .gt-footer-container > footer.gt-footer {
+        height: 3em;
+    }
+
+    .gt-footer-container > footer {
+        border-top: 1px solid #e9e9e6;
+    }
