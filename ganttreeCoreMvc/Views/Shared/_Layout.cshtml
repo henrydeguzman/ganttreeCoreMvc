@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+
+    <!-- Site css -->
+    <link rel="stylesheet" href="~/css/core.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="gt-header gt-header-nav-menu">
+            <div class="gt-header-logo">
+                <a>
+                    <img src="./images/logos/ganttree-logo-nav.png" />
+                </a>
+                <button class="btn gt-header-btn-collapse-nav d-lg-none" onclick="gt.navToggle(this)" data-target=".gt-header-nav">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="gt-profilenav">
+                    <div class="gt-profilenav-title">Personal Profile</div>
+                    <div class="gt-profilenav-desc"><button class="btn btn-default btn-sm"><span>Logout</span></button></div>
+                </div>
+
+                <!-- HEADER NAV MENU -->
+                <div class="gt-header-nav">
+                    <div class="gt-header-nav-main">
+                        <ul>
+                            <li class="separator"></li>
+                            <li>
+                                <a href="#">ID Badge</a>
+                            </li>
+                            <li>
+                                <a href="#">Certification</a>
+                            </li>
+                            <li>
+                                <a href="#">Resume</a>
+                            </li>
+                            <li>
+                                <a href="#">Vechicle</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /HEANDER NAV MENU -->
+            </div>
+
+            <!-- HEADER RIGHT -->
+            <div class="gt-header-right">
+                <ul>
+                    <li class="active"><a href="#"><img src="./images/icons/thumb/management-system-icon.png" /></a></li>
+                    <li><a href="#"><img src="./images/icons/thumb/user-profiles-icon.png" /></a></li>
+                    <li><a href="#"><img src="./images/icons/thumb/building-profiles-icon.png" /></a></li>
+                    <li><a href="#"><img src="./images/icons/thumb/publications-icon.png" /></a></li>
+                </ul>
+            </div>
+            <!-- /HEADER RIGHT -->
+        </header>
+        <header class="gt-header-sub">
+            <button class="btn sidebar-toggle-btn" onclick="gt.sidebarLeft(this)" data-value="7.187em">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+        <!-- /HEADER -->
+        <div class="gt-wrapper">
+            <!-- Sidebar -->
+            <div class="gt-sidebar">
+                content
+            </div>
+            <!-- /Sidebar -->
+            <!-- Content -->
+            <div class="gt-content">
+                @RenderBody()
+            </div>
+            <!-- /Content -->
+            <!-- Footer -->
+            <div class="gt-footer-container">
+                <footer class="gt-footer-sub"></footer>
+                <footer class="gt-footer"></footer>
+            </div>
+            <!-- /Footer -->
+        </div>
+        <!-- Sidebar-right -->
+        <div class="gt-sidebar-right">
+            <div class="gt-sidebar-right-actions">
+                <ul>
+                    <li onclick="gt.sidebarRight(this)" data-value="20%" data-target=".gt-sidebar-right"><i class="fas fa-angle-left"></i></li>
+                    <li onclick="gt.sidebarRight(this)" data-value="30%" data-target=".gt-sidebar-right"><i class="fas fa-angle-double-left"></i></li>
+                    <li onclick="gt.sidebarRight(this)" data-value="0" data-target=".gt-sidebar-right" class="gt-close"><i class="far fa-times-circle"></i></li>
+                </ul>
+            </div>
+            <div class="gt-sidebar-right-content">
+                content start here
+            </div>
+        </div>
+        <!-- /Sidebar-right -->
+    </div>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <!-- core js -->
+    <script src="~/js/core.js"></script>
+</body>
+</html>
