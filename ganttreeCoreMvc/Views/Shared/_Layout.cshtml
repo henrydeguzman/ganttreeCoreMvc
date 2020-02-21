@@ -1,11 +1,17 @@
 ﻿@{
     // Get controllers name for validations
-    var controllerName = this.ViewContext.RouteData.Values["controller"].ToString();
+     var controllerName = (ViewContext.RouteData.Values["controller"] ?? "").ToString();
+    // var controllerName = "";
 
     // Adding colors and background
     string themeBackground = ViewBag.themeBackground != null ? "background:" + ViewBag.themeBackground : null;
     string themeColor = ViewBag.themeColor != null ? "color:" + ViewBag.themeColor : null;
 }
+@using Microsoft.AspNetCore.Identity
+@using ganttreeCoreMvc.Data.Entities
+
+@inject SignInManager<StoreUser> SignInManager
+@inject UserManager<StoreUser> UserManager
 <!doctype html>
 <html lang="en" class="fixed-header fixed-sidebar">
 <head>
@@ -21,7 +27,7 @@
 
     <!-- Site css -->
     <link rel="stylesheet" href="~/css/core.css">
-    <title>@ViewBag.Title - @themeBackground</title>
+    <title>@ViewBag.Title</title>
 </head>
 <body>
     <div class="app-container">
@@ -35,7 +41,7 @@
                     }
                     else
                     {
-                        <img src="./images/logos/ganttree-logo-nav.png" />
+                        <img src="~/images/logos/ganttree-logo-nav.png" />
                     }
 
                 </a>
@@ -46,43 +52,44 @@
                 <!-- PROFILEBAR COMPONENT (temporary disabled)-->
                 <!-- await Component.InvokeAsync("Profilebar") -->
                 <div class="gt-profilenav" style="@themeColor">
-                    <div class="gt-profilenav-title">@ViewBag.Title</div>
-                    <div class="gt-profilenav-desc"><button style="@themeColor" class="btn btn-default btn-sm"><span>Logout</span></button></div>
-                </div>
-                <!--/PROFILEBAR COMPONENT-->
-                <!-- HEADER NAV MENU -->
-                <div class="gt-header-nav">
-                    <div class="gt-header-nav-main">
-                        <ul>
-                            <li class="separator"></li>
-                            <li>
-                                <a style="@themeColor" href="#">ID Badge</a>
-                            </li>
-                            <li>
-                                <a style="@themeColor" href="#">Certification</a>
-                            </li>
-                            <li>
-                                <a style="@themeColor" href="#">Resume</a>
-                            </li>
-                            <li>
-                                <a style="@themeColor" href="#">Vechicle</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /HEANDER NAV MENU -->
-            </div>
+                    
+                        <partial name="_LoginPartial" />                    
+                </div>                
+                @if (SignInManager.IsSignedIn(User) && controllerName == "Userprof")
+                {
 
-            <!-- HEADER RIGHT -->
-            <div class="gt-header-right">
-                <ul>
-                    <li @if (controllerName == "Mngsys") { <text>class="active"</text> }><a asp-controller="Mngsys" asp-action="Index"><img src="./images/icons/thumb/management-system-icon.png" /></a></li>
-                    <li @if (controllerName == "Userprof") { <text>class="active"</text> }><a asp-controller="Userprof" asp-action="Index"><img src="./images/icons/thumb/user-profiles-icon.png" /></a></li>
-                    <li @if (controllerName == "Buildingprof") { <text>class="active"</text> }><a asp-controller="Buildingprof" asp-action="Index"><img src="./images/icons/thumb/building-profiles-icon.png" /></a></li>
-                    <li @if (controllerName == "Publications") { <text>class="active"</text> }><a asp-controller="Publications" asp-action="Index"><img src="./images/icons/thumb/publications-icon.png" /></a></li>
-                </ul>
+                    <!--/PROFILEBAR COMPONENT-->
+                    <!-- HEADER NAV MENU -->
+                    <div class="gt-header-nav">
+                        <div class="gt-header-nav-main">
+                            <ul>
+                                <li class="separator"></li>
+                                <li class="active">
+                                    <a style="@themeColor" href="#">ID Badge</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /HEANDER NAV MENU -->
+                }
+
+
             </div>
-            <!-- /HEADER RIGHT -->
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <!-- HEADER RIGHT -->
+                <div class="gt-header-right">
+                    <ul>
+                        <li @if (controllerName == "Mngsys") { <text> class="active" </text> }><a asp-controller="Mngsys" asp-action="Index"><img src="./images/icons/thumb/management-system-icon.png" /></a></li>
+                        <li @if (controllerName == "Userprof") { <text> class="active" </text> }><a asp-controller="Userprof" asp-action="Index"><img src="./images/icons/thumb/user-profiles-icon.png" /></a></li>
+                        <li @if (controllerName == "Buildingprof") { <text> class="active" </text> }><a asp-controller="Buildingprof" asp-action="Index"><img src="./images/icons/thumb/building-profiles-icon.png" /></a></li>
+                        <li @if (controllerName == "Publications") { <text> class="active" </text> }><a asp-controller="Publications" asp-action="Index"><img src="./images/icons/thumb/publications-icon.png" /></a></li>
+                    </ul>
+                </div>
+                <!-- /HEADER RIGHT -->
+            }
+
+
         </header>
         <header class="gt-header-sub" style="@themeBackground">
             <button style="@themeColor" class="btn sidebar-toggle-btn" onclick="gt.sidebarLeft(this)" data-value="7.187em">
@@ -127,5 +134,7 @@
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
     <!-- core js -->
     <script src="~/js/core.js"></script>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

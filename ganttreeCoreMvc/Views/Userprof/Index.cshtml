@@ -1,1 +1,34 @@
-﻿User profile
+﻿
+@model ganttreeCoreMvc.Data.Entities.StoreUser
+
+<div class="row">
+    <div class="offset-4 col-md-4 offset-4">
+        <div class="profile">
+            <form>
+                <div class="form-group">
+                    <label>Uploaded Image</label>
+                    <img style="width: 100%" src="~/images/uploads/@Model.photoUrl" />
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Username: </label>
+                        <label>@Model.UserName</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Firstname: </label>
+                        <label>@Model.FirstName</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Lastname: </label>
+                        <label>@Model.LastName</label>
+                    </div>
+                </div>                
+
+            </form>          
+        </div>
+    </div>
+</div>

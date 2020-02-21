@@ -13,6 +13,9 @@ namespace ganttreeCoreMvc.Controllers
         // GET: /<controller>/<action>
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated) {
+                return RedirectToAction("Index", "Userprof");
+            }
             return View();
         }
     }
